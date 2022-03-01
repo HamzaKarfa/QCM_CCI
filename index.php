@@ -43,13 +43,13 @@ $qcm->setAppreciation(array('0-10' => 'Pas top du tout ...',  '10-20' => 'Très 
 
     <input type="text" name="test" value="test">
 
-        <?php foreach ($qcm->getQuestions() as $question) { ?>
+        <?php foreach ($qcm->getQuestions() as $key => $question) { ?>
     
-            <p><?= $question->getQuestion()?></p>
+            <p><?=$question->getQuestion()?></p>
             
-            <?php foreach ($question->getAnswers() as $key=> $answer) { ?>
+            <?php foreach ($question->getAnswers() as $answer) { ?>
                 <div>
-                    <input type="radio" id="<?=$key?>" name="<?=$key?>" value="<?=$answer->getAnswer()?>">
+                    <input type="radio" id="<?=$key?>" name="<?= $key ?>" value="<?=$answer->getAnswer()?>">
                     <label for="<?=$key?>"><?=$answer->getAnswer()?></label>
                 </div>
             <?php } ?>
